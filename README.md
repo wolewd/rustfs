@@ -20,7 +20,8 @@ Although RustFS is still under rapid development and not recommended for product
 ## Prerequisites
 
 - A VPS with Linux (tested on Ubuntu & Arch Linux)  
-- Docker and Docker Compose installed  
+- Docker and Docker Compose installed
+- A Docker network called `application_network`
 - A reverse proxy already set up using a Docker network 
 ---
 
