@@ -61,3 +61,30 @@ Although RustFS is still under rapid development and not recommended for product
    }
    ``` 
 ---
+
+## Notes
+
+By default, this setup stores data inside the Docker volume.
+If you prefer to store data outside the container *(so you can access it directly from your host machine)*, update the `docker-compose.yaml` as follows:
+
+1. Remove the named volume section:
+   ```yaml
+   volumes:
+     rustfs-data:
+   ```
+
+2. Change the service volume mapping:
+   ```yaml
+       volumes:
+         - rustfs-data:/rustfs
+   ```
+   
+   to:
+   ```yaml
+       volumes:
+         - ./storage:/data
+   ```
+
+With this change, a `storage` directory will be created in the repository, allowing you to access and inspect the files without entering the Docker container.
+
+---
